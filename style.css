@@ -1,0 +1,91 @@
+@font-face{
+
+    font-family: Blinker;
+    src: url(Blinker-SemiBold.ttf);
+}
+.navbar,.navbar-brand{
+    font-family: Blinker;
+    font-size: 30px !important;
+}
+.btn{
+    width: 90px !important;
+    background-image: linear-gradient(to right,rgb(99, 117, 189),rgb(183, 67, 233)) !important;
+    color: white !important;
+}
+.dropdown-btn{
+    width: 150px !important;
+}
+.scientific-btn{
+    width: 70px !important;
+}
+.trig-btn{
+    width: 60px !important;
+    background-image: linear-gradient(to right,rgb(191, 200, 236),rgb(183, 67, 233)) !important;
+    color: white !important;
+}
+.btn:hover{
+
+    background-image: linear-gradient(to right,rgb(183, 67, 233),rgb(185, 185, 185)) !important;
+}
+.main{
+
+    border: 2px solid rgb(108, 109, 111);
+    border-radius: 20px;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+input{
+
+    width: 400px;
+    height: 40px;
+}
+input:focus{
+    border: none;
+}
+#b1,#b2,#b3,#b4,#b5,#b6,#trig-btns,#scientific{
+    display: none;
+}
+
+#cal-div{
+
+    background-image: linear-gradient(to right, rgb(224, 219, 224), rgb(119, 136, 153));
+    border-top-left-radius: 50% 75px;
+    border-bottom-right-radius: 50% 75px;
+    z-index: 0;
+
+}
+.list-group-item:hover, .list-group-item:focus{
+
+    color: rgb(55, 87, 210) !important;
+}
+@media only screen and (max-width: 500px){
+    .btn{
+        width: 50px !important;
+    }
+    .main{
+        width: 300px;
+    }
+    input{
+        width: 240px;
+        height: 40px;
+    }
+    .dropdown-btn{
+        width: 120px !important;
+        margin-left: 0px !important;
+    }
+    #dropdown, #scientificHead, #trig-btns{
+        margin: 0px !important;
+    }
+    #scientificResult{
+        width: 300px !important;
+    }
+    .scientific-btn{
+        width: 50px !important;
+        margin-left: 0px !important;
+    }
+    #scientific{
+        width: 340px !important;
+    }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator</title>
+    <link rel="shortcut icon" type="image/png" href="images/icons8_math_20px.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><img src="images/icons8_math_50px.png" alt=""> Online Calculator</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-12 col-xl-3 col-lg-3 col-md-3 col-sm-4 pl-4 my-4" id="list-div">
+                <ul class="list-group list-group-flush ">
+                    <a href="#" class="list-group-item list-group-item-action" onclick="displayStandard()">Standard</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="displayScientific()">Scientific</a>
+                </ul>
+            </div>
+            <div class="col col-12 col-xl-9 col-lg-9 col-md-9 col-sm-8 shadow" id="cal-div">
+                <div class="bg-white main shadow text-center py-3" id="standard">
+                    <div class="mx-auto">
+                        <div class="text-left pl-4 mx-4">
+                            <h5>Standard</h5>
+                        </div>
+                        <div class="my-4">
+                            <input id="result" type="text" width="100%" readonly>
+                        </div>
+                        <div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('%')">%</button>
+                                <button type="button" class="btn btn-light m-1" onclick="clearRecent('result')">CE</button>
+                                <button type="button" class="btn btn-light m-1" onclick="clearAll('result')">C</button>
+                                <button type="button" class="btn btn-light m-1" onclick="clearAll('result')"><img src="images/icons8_clear_symbol_20px.png" alt=""></button>
+                            </div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="half('result')">1/x</button>
+                                <button type="button" class="btn btn-light m-1" onclick="square('result')">x <sup>2</sup></button>
+                                <button type="button" class="btn btn-light m-1" onclick="root('result')">√x</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('/')">÷</button>
+                            </div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('7')">7</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('9')">9</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('8')">8</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('*')">x</button>
+                            </div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('4')">4</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('5')">5</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('6')">6</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('-')">-</button>
+                            </div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('1')">1</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('2')">2</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('3')">3</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('+')">+</button>
+                            </div>
+                            <div class="btn-grp">
+                                <button type="button" class="btn btn-light m-1" onclick="changeSign('result')">+/-</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('0')">0</button>
+                                <button type="button" class="btn btn-light m-1" onclick="displayValue('.')">.</button>
+                                <button type="button" class="btn btn-info m-1" onclick="calculate('result')">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white main shadow text-center py-3" id="scientific">
+                    <div class="text-left pl-4 mx-4" id="scientificHead">
+                        <h5>Scientific</h5>
+                    </div>
+                    <div class="my-4">
+                        <input id="scientificResult" type="text" width="100%" readonly>
+                    </div>
+                    <div class="row px-1 mx-4 mb-1" id="dropdown">
+                        <div class="col text-left">
+                            <button type="button" class="btn btn-light m-1 dropdown-btn" onclick="displayTrigBtns()">Trignometry</button>
+                        </div>
+                        
+                    </div>
+                    <div id="trig-btns" class="text-left ml-4 pl-4 my-2">
+                        <div class="btn-grp my-1">
+                            <button type="button" class="btn btn-light trig-btn" onclick="sin()">sin</button>
+                            <button type="button" class="btn btn-light trig-btn" onclick="cos()">cos</button>
+                            <button type="button" class="btn btn-light trig-btn" onclick="tan()">tan</button>
+                            
+                        </div>
+                        <div class="btn-grp my-1">
+                            <button type="button" class="btn btn-light trig-btn" onclick="cosec()">csc</button>
+                            <button type="button" class="btn btn-light trig-btn" onclick="sec()">sec</button>
+                            <button type="button" class="btn btn-light trig-btn" onclick="cot()">cot</button>
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayButtons()">2<sup>nd</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="PIvalue()">π</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="eValue()">e</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="clearRecent('scientificResult')">CE</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="clearAll('scientificResult')"><img src="images/icons8_clear_symbol_20px.png" alt=""></button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b1" onclick="root('scientificResult')"><sup>2</sup>√x</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b7" onclick="square('scientificResult')">x <sup>2</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="half('scientificResult')">1/x</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="absValue()">| x |</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="expValue()">exp</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('%')">mod</button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b2" onclick="cubeRoot()"><sup>3</sup>√x</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b8" onclick="cube(3)">x <sup>3</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('(')">(</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific(')')">)</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="factorial()">n !</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('/')">÷</button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b3" onclick="displayValueScientific(' yroot ')"><sup>y</sup>√x</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b9" onclick="displayValueScientific('^')">x <sup>y</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('7')">7</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('8')">8</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('9')">9</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('*')">x</button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b4" onclick="powerBase2()">2 <sup>x</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b10" onclick="powerBase10()">10<sup>x</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('4')">4</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('5')">5</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('6')">6</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('-')">-</button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b5" onclick="displayValueScientific(' base log ')">log<sub>y</sub>x</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b11" onclick="log()">log</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('1')">1</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('2')">2</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('3')">3</button>
+                            <button type="button" class="btn btn-info m-1 scientific-btn" onclick="displayValueScientific('+')">+</button>
+                        </div>
+                        <div class="btn-grp">
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b6" onclick="ePowerX()">e <sup>x</sup></button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" id="b12" onclick="ln()">ln</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="changeSign('scientificResult')">+/-</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('0')">0</button>
+                            <button type="button" class="btn btn-light m-1 scientific-btn" onclick="displayValueScientific('.')">.</button>
+                            <button type="button" class="btn btn-info m-1 scientific-btn" onclick="calculate('scientificResult')">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light py-2 mt-4">
+        <div class="container">
+            <div style="font-size: 12px;">
+                Copyright 
+                <i class="fa fa-copyright" aria-hidden="true"></i>
+                Online Calculator
+            </div>
+        </div>
+    </div>
+</body><script src="app.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</html>
